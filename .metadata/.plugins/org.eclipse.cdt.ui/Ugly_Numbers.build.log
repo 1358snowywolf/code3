@@ -1,0 +1,6 @@
+21:03:20 **** Incremental Build of configuration Debug for project Ugly_Numbers ****
+make all 
+make: Nothing to be done for 'all'.
+
+21:03:20 Build Finished. 0 errors, 0 warnings. (took 68ms)
+

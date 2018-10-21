@@ -1,0 +1,30 @@
+//============================================================================
+// Name        : Ugly_Numbers.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+	int value[] = {2, 3, 5};
+	int index[] = {0, 0, 0};
+	vector<int> dp (1, 1);
+	int N;
+	cin >> N;
+
+	while(dp.size() < N - 1){
+		int minimum = INT_MAX;
+
+		for(int i = 0; i < sizeof(value) / sizeof(int); i++){
+			minimum = min(minimum, dp[index[i]] * value[i]);
+		}
+	}
+
+
+	return 0;
+}

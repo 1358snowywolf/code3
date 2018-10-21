@@ -1,0 +1,23 @@
+17:19:29 **** Build of configuration Debug for project GameofLines ****
+make all 
+Building file: ../src/GameofLines.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/GameofLines.d" -MT"src/GameofLines.o" -o "src/GameofLines.o" "../src/GameofLines.cpp"
+../src/GameofLines.cpp: In function ‘int recursion()’:
+../src/GameofLines.cpp:15:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+../src/GameofLines.cpp: In function ‘int main()’:
+../src/GameofLines.cpp:22:19: warning: ‘N’ is used uninitialized in this function [-Wuninitialized]
+  for(int i = 0; i < N; i++){
+                 ~~^~~
+Finished building: ../src/GameofLines.cpp
+ 
+Building target: GameofLines
+Invoking: GCC C++ Linker
+g++  -o "GameofLines"  ./src/GameofLines.o   
+Finished building target: GameofLines
+ 
+
+17:19:30 Build Finished. 0 errors, 2 warnings. (took 1s.261ms)
+

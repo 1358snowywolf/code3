@@ -1,0 +1,15 @@
+21:20:42 **** Incremental Build of configuration Debug for project Claustrophobia ****
+make all 
+Building file: ../src/Claustrophobia.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Claustrophobia.d" -MT"src/Claustrophobia.o" -o "src/Claustrophobia.o" "../src/Claustrophobia.cpp"
+Finished building: ../src/Claustrophobia.cpp
+ 
+Building target: Claustrophobia
+Invoking: GCC C++ Linker
+g++  -o "Claustrophobia"  ./src/Claustrophobia.o   
+Finished building target: Claustrophobia
+ 
+
+21:20:44 Build Finished. 0 errors, 0 warnings. (took 1s.417ms)
+

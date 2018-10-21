@@ -1,0 +1,72 @@
+//#include <bits/stdc++.h>
+//
+//using namespace std;
+//
+//int x[2000], y[2000];
+//
+//int main() {
+//	int N;
+//	cin >> N;
+//	pair<int, int> answer;
+//	long long minimum = INT_MAX;
+//	vector<pair<int, int>> coordinates;
+//
+//	for(int i = 0; i < N; i++){
+//		int X, Y;
+//		cin >> X >> Y;
+////		coordinates.push_back(make_pair(x, y));
+//		x[i] = X;
+//		y[i] = Y;
+//	}
+//
+//	for(int i = 0; i < N; i++){
+//		for(int j = i + 1; j < N; j++){
+////			int X = (coordinates[i].first - coordinates[j].first) * (coordinates[i].first - coordinates[j].first);
+////			int Y = (coordinates[i].second - coordinates[j].second) * (coordinates[i].second - coordinates[j].second);
+//			int X = (x[i] - x[j]) * (x[i] - x[j]);
+//			int Y = (y[i] - y[j]) * (y[i] - y[j]);
+//
+//			long long distance = X + Y;
+//
+//			if(distance < minimum){
+//				minimum = distance;
+//				answer.first = i + 1;
+//				answer.second = j + 1;
+//			}
+//		}
+//	}
+//
+//	cout << answer.first  << " " << answer.second << endl;
+//
+//	return 0;
+//}
+
+#include <stdio.h>
+
+int x[2000], y[2000];
+int n;
+
+#define SQ(x) (((long long)x)*((long long)x))
+
+int main () {
+    int i, j;
+    long long shortest, t;
+    int s1, s2;
+
+    scanf ("%d", &n);
+    for (i = 0; i < n; i++)
+        scanf ("%d %d", &x[i], &y[i]);
+
+    shortest = 1LL << 60;
+    for (i = 0; i < n; i++)
+        for (j = i+1; j < n; j++) {
+            t = SQ(x[i]-x[j]) + (long long) SQ(y[i]-y[j]);
+            if (t < shortest) {
+                s1 = i+1;
+                s2 = j+1;
+                shortest = t;
+            }
+        }
+    printf ("%d %d\n", s1, s2);
+    return 0;
+}

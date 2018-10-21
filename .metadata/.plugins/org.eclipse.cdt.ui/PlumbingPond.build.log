@@ -1,0 +1,15 @@
+10:38:39 **** Incremental Build of configuration Debug for project PlumbingPond ****
+make all 
+Building file: ../src/PlumbingPond.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/PlumbingPond.d" -MT"src/PlumbingPond.o" -o "src/PlumbingPond.o" "../src/PlumbingPond.cpp"
+Finished building: ../src/PlumbingPond.cpp
+ 
+Building target: PlumbingPond
+Invoking: GCC C++ Linker
+g++  -o "PlumbingPond"  ./src/PlumbingPond.o   
+Finished building target: PlumbingPond
+ 
+
+10:38:40 Build Finished. 0 errors, 0 warnings. (took 1s.366ms)
+

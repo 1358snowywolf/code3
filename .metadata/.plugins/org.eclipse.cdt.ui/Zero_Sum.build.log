@@ -1,0 +1,15 @@
+13:46:17 **** Incremental Build of configuration Debug for project Zero_Sum ****
+make all 
+Building file: ../src/Zero_Sum.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Zero_Sum.d" -MT"src/Zero_Sum.o" -o "src/Zero_Sum.o" "../src/Zero_Sum.cpp"
+Finished building: ../src/Zero_Sum.cpp
+ 
+Building target: Zero_Sum
+Invoking: GCC C++ Linker
+g++  -o "Zero_Sum"  ./src/Zero_Sum.o   
+Finished building target: Zero_Sum
+ 
+
+13:46:18 Build Finished. 0 errors, 0 warnings. (took 1s.474ms)
+

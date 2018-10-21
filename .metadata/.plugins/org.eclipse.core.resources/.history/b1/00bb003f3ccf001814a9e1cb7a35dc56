@@ -1,0 +1,80 @@
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+float solve(string str){
+	set<char> functions;
+	stack<float> numbers;
+	stack<int> operations;
+	int level = 0;
+
+	for(int i = 0; i < (int) str.size(); i++){
+		if(isalpha(str[i])){
+			numbers.push(str[i]);
+		}
+		if(functions.find(str[i]) != functions.end){
+			int x = (functions[str[i]] + level);
+
+			while(x < operations.top()){
+				int b = numbers.top();
+				numbers.pop();
+				int a = numbers.top();
+				numbers.pop();
+				int op = operations.top();
+				operations.pop();
+
+				if(op % 10 == 1){
+					numbers.push(a + b);
+				}
+				if(op % 10 == 2){
+					numbers.push(a - b);
+				}
+				if(op % 10 == 5){
+					numbers.push(a * b);
+				}
+				else{
+					numbers.push(a / b);
+				}
+			}
+
+			operations.push(x);
+		}
+		if(str[i] == '('){
+			level += 10;
+		}
+		if(str[i] == ')'){
+			level -= 10;
+		}
+	}
+
+	while((int) numbers.size() != 1){
+		int b = numbers.top();
+		numbers.pop();
+		int a = numbers.top();
+		numbers.pop();
+		int op = operations.top();
+
+		if(op % 10 == 1){
+			numbers.push(a + b);
+		}
+		if(op % 10 == 2){
+			numbers.push(a - b);
+		}
+		if(op % 10 == 5){
+			numbers.push(a * b);
+		}
+		else{
+			numbers.push(a / b);
+		}
+	}
+
+	return numbers.top();
+}
+
+int main() {
+	string algorithm = "(1+2)*(3-4)/5";
+	cout << solve(algorithm) << endl;
+
+	return 0;
+}

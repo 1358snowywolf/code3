@@ -1,0 +1,15 @@
+15:43:06 **** Build of configuration Debug for project MoneySystems ****
+make all 
+Building file: ../src/MoneySystems.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/MoneySystems.d" -MT"src/MoneySystems.o" -o "src/MoneySystems.o" "../src/MoneySystems.cpp"
+Finished building: ../src/MoneySystems.cpp
+ 
+Building target: MoneySystems
+Invoking: GCC C++ Linker
+g++  -o "MoneySystems"  ./src/MoneySystems.o   
+Finished building target: MoneySystems
+ 
+
+15:43:07 Build Finished. 0 errors, 0 warnings. (took 1s.272ms)
+

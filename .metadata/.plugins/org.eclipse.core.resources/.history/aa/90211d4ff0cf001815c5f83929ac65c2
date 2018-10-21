@@ -1,0 +1,23 @@
+//============================================================================
+// Name        : KrushalAlgorithm.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <bits/stdc++.h>
+
+using namespace std;
+vector<int> parent;
+
+int parent(int u){
+
+}
+
+int main() {
+	for(int i = 0; i < 5; i++){
+		parent.push_back(i);
+	}
+	return 0;
+}

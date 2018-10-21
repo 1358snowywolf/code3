@@ -1,0 +1,85 @@
+//============================================================================
+// Name        : Election_Time.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+//int findFirst(vector<pair<int, int>> results){
+//	int first = 0;
+//
+//	for(int i = 0; i < (int) results.size(); i++){
+//		if(results[first].first < results[i].first){
+//			first = i;
+//		}
+//	}
+//
+//	return first;
+//}
+//
+//int findSecond(vector<pair<int, int>> results, int first){
+//	int second = 0;
+//
+//	for(int i = 0; i < (int) results.size(); i++){
+//		if(results[second].first < results[i].first && i != first){
+//			second = i;
+//		}
+//	}
+//
+//	return second;
+//}
+//
+//int findThird(vector<pair<int, int>> results, int first, int second){
+//	int third = 0;
+//
+//	for(int i = 0; i < (int) results.size(); i++){
+//		if(results[third].first < results[i].first && i != first && i != second){
+//			third = i;
+//		}
+//	}
+//
+//	return third;
+//}
+
+int main() {
+	int N, K;
+	cin >> N >> K;
+	vector<pair<int, int>> results;
+
+	for(int i = 0; i < N; i++){
+		int first, second;
+		cin >> first >> second;
+		results.push_back({first, second});
+	}
+
+	if(N == 1){
+		cout << 1 << endl;
+		return 0;
+	}
+
+	if(N == 2 && K >= 2){
+		if(results[0].second > results[1].second){
+			cout << 1 << endl;
+		}
+		else{
+			cout << 2 << endl;
+		}
+		return 0;
+	}
+
+	sort(results.begin(), results.end());
+
+	int maximum = (results[0].second > results[1].second) ? 0 : 1;
+	maximum = (maximum > results[2].second) ? maximum : 2;
+
+	cout << maximum + 1 << endl;
+
+//	cout << max(results[first].second, max(results[second].second, results[third].second)) << endl;
+
+	return 0;
+}

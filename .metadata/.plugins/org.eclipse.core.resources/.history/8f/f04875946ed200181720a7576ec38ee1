@@ -1,0 +1,111 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+int main() {
+	int M;
+	cin >> M;
+	int time = 0;
+//	int end = INT_MIN;
+	int destroyed[301][301];
+	vector<int> dx = {0, -1, 1, 0};
+	vector<int> dy = {1, 0, 0, -1};
+
+	for(int i = 0; i < 301; i++){
+		for(int j = 0; j < 301; j++){
+			destroyed[i][j] = INT_MAX;
+		}
+	}
+
+	set<pair<int, int>> visited;
+	queue<pair<int, int>> meteors;
+
+	for(int i = 0; i < M; i++){
+		int X, Y, T;
+		cin >> X >> Y >> T;
+
+//		end = min(end, T);
+		destroyed[X][Y] = min(destroyed[X][Y], T);
+
+		for(int j = 0; j < 4; j++){
+			if(X + dx[j] < 0 || X + dx[j] >= 301){
+				continue;
+			}
+			if(Y + dy[j] < 0 || Y + dy[j] >= 301){
+				continue;
+			}
+
+			destroyed[X + dx[j]][Y + dy[j]] = min(destroyed[X + dx[j]][Y + dy[j]], T);
+		}
+	}
+
+	meteors.push(make_pair(0, 0));
+	meteors.push(make_pair(-1, -1));
+
+//	for(int i = 0; i < 6; i++){
+//		for(int j = 0; j < 6; j++){
+//			if(destroyed[i][j] == INT_MAX){
+//				cout << "x" << " ";
+//			}
+//			else{
+//				cout << destroyed[i][j] << " ";
+//			}
+//		}
+//
+//		cout << endl;
+//	}
+
+	time = 0;
+	while(!meteors.empty()){
+		pair<int, int> node = meteors.front();
+		cout << time << " : (" << node.first<< ", " << node.second<< ")  destroy : " << destroyed[node.first][node.second] << endl;
+//		int a = node.first;
+//		int b = node.second;
+		meteors.pop();
+		if(destroyed[node.first][node.second] <= time){
+			continue;
+		}
+		if(destroyed[node.first][node.second] == INT_MAX){
+			cout << time << endl;
+			return 0;
+		}
+
+		if(node == make_pair(-1, -1) && !meteors.empty()){
+			meteors.push(make_pair(-1, -1));
+			time++;
+		}
+
+		for(int i = 0; i < (int) dx.size(); i++){
+				int x = node.first + dx[i];
+				int y = node.second + dy[i];
+
+				if(x < 0 || x >= 301){
+					continue;
+				}
+				if(y < 0 || y >= 301){
+					continue;
+				}
+				if(visited.find(make_pair(x, y)) != visited.end()){
+					continue;
+				}
+				if(destroyed[x][y] <= time){
+					continue;
+				}
+
+				visited.insert(make_pair(x, y));
+				meteors.push(make_pair(x, y));
+		}
+	}
+
+//	if(time <= end){
+//		cout << -1 << endl;
+//	}
+//	else{
+//		cout << time << endl;
+//	}
+
+	cout << -1 << endl;
+
+	return 0;
+}

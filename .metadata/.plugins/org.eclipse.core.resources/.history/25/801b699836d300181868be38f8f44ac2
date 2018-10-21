@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+void floodfill(vector<vector<char>> hide, int i, int j){
+	if(i < 0 || i > (int) hide.size()){
+		return;
+	}
+
+	if(j < 0 || j > (int) hide[0].size()){
+		return;
+	}
+}
+
+int main() {
+	ifstream fin ("pageant");
+	ofstream fout ("pageant");
+	vector<vector<char>> hide;
+	int N, M;
+	fin >> N >> M;
+
+	for(int i = 0; i < N; i++){
+		vector<char> row;
+
+		for(int j = 0; j < M; j++){
+			char input;
+			fin >> input;
+			row.push_back(input);
+		}
+
+		hide.push_back(row);
+	}
+
+
+
+	return 0;
+}

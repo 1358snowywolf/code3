@@ -1,0 +1,15 @@
+15:39:01 **** Incremental Build of configuration Debug for project Subset_Sum ****
+make all 
+Building file: ../src/Subset_Sum.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Subset_Sum.d" -MT"src/Subset_Sum.o" -o "src/Subset_Sum.o" "../src/Subset_Sum.cpp"
+Finished building: ../src/Subset_Sum.cpp
+ 
+Building target: Subset_Sum
+Invoking: GCC C++ Linker
+g++  -o "Subset_Sum"  ./src/Subset_Sum.o   
+Finished building target: Subset_Sum
+ 
+
+15:39:03 Build Finished. 0 errors, 0 warnings. (took 1s.530ms)
+

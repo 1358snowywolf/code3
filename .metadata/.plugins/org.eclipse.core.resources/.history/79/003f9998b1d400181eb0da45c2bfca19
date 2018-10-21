@@ -1,0 +1,36 @@
+//============================================================================
+// Name        : HayBales.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+	int N;
+	cin >> N;
+	int sum = 0;
+	vector<int> heights;
+
+	for(int i = 0; i < N; i++){
+		int input;
+		cin >> input;
+		sum += input;
+		heights.push_back(input);
+	}
+
+	sum /= N;
+	int difference = 0;
+
+	for(int i = 0; i < N; i++){
+		if(sum > heights[i]){
+			difference += (sum - heights[i]);
+		}
+	}
+
+	return 0;
+}

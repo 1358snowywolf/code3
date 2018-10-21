@@ -1,0 +1,24 @@
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+float solve(string str){
+	map<char, int> functions;
+	vector<int> numbers, operations;
+	int level = 0;
+
+	for(int i = 0; i < (int) str.size(); i++){
+		if(isalpha(str[i])){
+			numbers.push_back();
+		}
+		if(functions.find(str[i]) != functions.end){
+
+		}
+	}
+}
+
+int main() {
+
+	return 0;
+}

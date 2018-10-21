@@ -1,0 +1,15 @@
+17:19:28 **** Build of configuration Debug for project CruelMathTeacherI ****
+make all 
+Building file: ../src/CruelMathTeacherI.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/CruelMathTeacherI.d" -MT"src/CruelMathTeacherI.o" -o "src/CruelMathTeacherI.o" "../src/CruelMathTeacherI.cpp"
+Finished building: ../src/CruelMathTeacherI.cpp
+ 
+Building target: CruelMathTeacherI
+Invoking: GCC C++ Linker
+g++  -o "CruelMathTeacherI"  ./src/CruelMathTeacherI.o   
+Finished building target: CruelMathTeacherI
+ 
+
+17:19:29 Build Finished. 0 errors, 0 warnings. (took 1s.68ms)
+

@@ -1,0 +1,15 @@
+20:01:58 **** Incremental Build of configuration Debug for project PerfectCow ****
+make all 
+Building file: ../src/PerfectCow.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/PerfectCow.d" -MT"src/PerfectCow.o" -o "src/PerfectCow.o" "../src/PerfectCow.cpp"
+Finished building: ../src/PerfectCow.cpp
+ 
+Building target: PerfectCow
+Invoking: GCC C++ Linker
+g++  -o "PerfectCow"  ./src/PerfectCow.o   
+Finished building target: PerfectCow
+ 
+
+20:02:00 Build Finished. 0 errors, 0 warnings. (took 1s.482ms)
+

@@ -1,0 +1,22 @@
+11:13:17 **** Incremental Build of configuration Debug for project PathFinding ****
+make all 
+Building file: ../src/PathFinding.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/PathFinding.d" -MT"src/PathFinding.o" -o "src/PathFinding.o" "../src/PathFinding.cpp"
+../src/PathFinding.cpp: In function ‘int main()’:
+../src/PathFinding.cpp:57:21: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for(int i = 0; i < output.size(); i++){
+                   ~~^~~~~~~~~~~~~~~
+../src/PathFinding.cpp:59:10: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if(i != output.size() - 1){
+        ~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../src/PathFinding.cpp
+ 
+Building target: PathFinding
+Invoking: GCC C++ Linker
+g++  -o "PathFinding"  ./src/PathFinding.o   
+Finished building target: PathFinding
+ 
+
+11:13:19 Build Finished. 0 errors, 2 warnings. (took 1s.757ms)
+

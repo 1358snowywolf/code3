@@ -1,0 +1,15 @@
+16:46:57 **** Incremental Build of configuration Debug for project Operations ****
+make all 
+Building file: ../src/Operations.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Operations.d" -MT"src/Operations.o" -o "src/Operations.o" "../src/Operations.cpp"
+Finished building: ../src/Operations.cpp
+ 
+Building target: Operations
+Invoking: GCC C++ Linker
+g++  -o "Operations"  ./src/Operations.o   
+Finished building target: Operations
+ 
+
+16:46:59 Build Finished. 0 errors, 0 warnings. (took 1s.524ms)
+

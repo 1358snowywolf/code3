@@ -1,0 +1,98 @@
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+float solve(string str){
+	map<char, int> functions;
+	functions.insert({'+', 1});
+	functions.insert({'-', 2});
+	functions.insert({'*', 5});
+	functions.insert({'/', 6});
+	stack<float> numbers;
+	stack<int> operations;
+	int level = 0;
+
+	for(int i = 0; i < (int) str.size(); i++){
+		if(isdigit(str[i])){
+//			cout << "digit" << endl;
+			numbers.push((float) (str[i] - '0'));
+		}
+		else if(str[i] == '('){
+//			cout << "(" << endl;
+			level += 10;
+		}
+		else if(str[i] == ')'){
+//			cout << ")" << endl;
+			level -= 10;
+		}
+		else{
+			int x = (functions[str[i]] + level);
+//			cout << x << endl;
+
+			while(!operations.empty() && x < operations.top()){
+				int b = numbers.top();
+				numbers.pop();
+				int a = numbers.top();
+				numbers.pop();
+				int op = operations.top();
+				operations.pop();
+
+				if(op % 10 == 1){
+					numbers.push(a + b);
+//					cout << "a + b = " << (a + b) << endl;
+				}
+				else if(op % 10 == 2){
+					numbers.push(a - b);
+//					cout << "a - b = " << (a - b) << endl;
+				}
+				else if(op % 10 == 5){
+					numbers.push(a * b);
+//					cout << "a * b = " << (a * b) << endl;
+				}
+				else{
+					numbers.push(a / b);
+//					cout << "a / b = " << (a / b) << endl;
+				}
+			}
+
+			operations.push(x);
+		}
+
+//		if(!numbers.empty()){
+//			cout << numbers.top() << endl;
+//		}
+	}
+
+	while((int) numbers.size() != 1){
+//		cout << "I'M HERE" << endl;
+		int b = numbers.top();
+		numbers.pop();
+		int a = numbers.top();
+		numbers.pop();
+		int op = operations.top();
+
+		if(op % 10 == 1){
+			numbers.push(a + b);
+		}
+		else if(op % 10 == 2){
+			numbers.push(a - b);
+		}
+		else if(op % 10 == 5){
+			numbers.push(a * b);
+		}
+		else{
+			numbers.push(a / b);
+		}
+
+//		cout << numbers.top() << endl;
+	}
+
+	return numbers.top();
+}
+
+int main() {
+	string algorithm = "(1+2)*(3-4)/1";
+	cout << solve(algorithm) << endl;
+	return 0;
+}

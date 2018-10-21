@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+void recursion(vector<vector<bool>> DP, vector<int> values, set<int> used, int i, int j){
+	if(i < 0 || j < 0){
+		return;
+	}
+
+	if(j == 0){
+		for(auto itr : used){
+			cout << itr << " ";
+		}
+
+		cout << endl;
+		return;
+	}
+
+	recursion(DP, values, used, i - 1, j);
+	used.insert(values[i - 1]);
+	recursion(DP, values, used, i - 1, j - values[i - 1]);
+}
+
+int main() {
+	int sum = 9;
+	vector<int> values = {3, 34, 4, 12, 5, 2};
+	vector<vector<bool>> DP (values.size() + 1, vector<bool> (sum + 1, false));
+
+	for(int i = 0; i < (int) DP.size(); i++){
+		DP[i][0] = true;
+	}
+
+	for(int i = 1; i < (int) DP.size(); i++){
+		for(int j = 1; j < (int) DP[i].size(); j++){
+			DP[i][j] = DP[i - 1][j] || ((j - values[i - 1] >= 0) ?  DP[i - 1][j - values[i - 1]] : false);
+		}
+	}
+
+	cout << DP[DP.size() - 1][DP[0].size() - 1] << endl;
+
+	return 0;
+}

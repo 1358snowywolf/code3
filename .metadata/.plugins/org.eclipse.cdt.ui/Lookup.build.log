@@ -1,0 +1,15 @@
+10:39:21 **** Incremental Build of configuration Debug for project Lookup ****
+make all 
+Building file: ../src/Lookup.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Lookup.d" -MT"src/Lookup.o" -o "src/Lookup.o" "../src/Lookup.cpp"
+Finished building: ../src/Lookup.cpp
+ 
+Building target: Lookup
+Invoking: GCC C++ Linker
+g++  -o "Lookup"  ./src/Lookup.o   
+Finished building target: Lookup
+ 
+
+10:39:23 Build Finished. 0 errors, 0 warnings. (took 1s.528ms)
+

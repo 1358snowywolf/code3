@@ -1,0 +1,20 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+	int R, C;
+	cin >> R >> C;
+	vector<vector<int>> pond;
+
+	for(int i = 0; i < R; i++){
+		vector<int> row;
+		for(int j = 0; j < C; j++){
+			int input;
+			cin >> input;
+			row.push_back(input);
+		}
+		pond.push_back(row);
+	}
+	return 0;
+}

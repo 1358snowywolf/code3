@@ -1,0 +1,15 @@
+20:48:21 **** Incremental Build of configuration Debug for project Telephone_Lines ****
+make all 
+Building file: ../src/Telephone_Lines.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Telephone_Lines.d" -MT"src/Telephone_Lines.o" -o "src/Telephone_Lines.o" "../src/Telephone_Lines.cpp"
+Finished building: ../src/Telephone_Lines.cpp
+ 
+Building target: Telephone_Lines
+Invoking: GCC C++ Linker
+g++  -o "Telephone_Lines"  ./src/Telephone_Lines.o   
+Finished building target: Telephone_Lines
+ 
+
+20:48:22 Build Finished. 0 errors, 0 warnings. (took 1s.568ms)
+

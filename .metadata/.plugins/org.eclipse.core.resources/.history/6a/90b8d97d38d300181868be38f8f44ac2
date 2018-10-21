@@ -1,0 +1,83 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+vector<pair<int, int>> first;
+vector<pair<int, int>> second;
+
+void floodfill(vector<vector<char>>& hide, char spot, int i, int j){
+	if(i < 0 || i > (int) hide.size()){
+		return;
+	}
+	if(j < 0 || j > (int) hide[0].size()){
+		return;
+	}
+	if(hide[i][j] != 'X' || hide[i][j] == '.'){
+		return;
+	}
+
+	hide[i][j] = spot;
+	if(spot - '0' == 1){
+		first.push_back({i, j});
+	}
+	if(spot - '0' == 2){
+		second.push_back({i, j});
+	}
+
+	int dx[] = {0, 1, 0, -1};
+	int dy[] = {1, 0, -1, 0};
+
+	for(int k = 0; k < 4; k++){
+		floodfill(hide, spot, i + dx[k], j + dy[k]);
+	}
+}
+
+int main() {
+	int N, M;
+	ifstream fin ("pageant");
+	ofstream fout ("pageant");
+	vector<vector<char>> hide;
+	fin >> N >> M;
+
+	for(int i = 0; i < N; i++){
+		vector<char> row;
+
+		for(int j = 0; j < M; j++){
+			char input;
+			fin >> input;
+			row.push_back(input);
+		}
+
+		hide.push_back(row);
+	}
+
+	int spot = 1;
+
+	for(int i = 0; i < (int) hide.size(); i++){
+		if(spot == 3){
+			break;
+		}
+
+		for(int j = 0; j < (int)hide[i].size(); i++){
+			if(spot == 3){
+				break;
+			}
+			if(hide[i][j] != 'X' || hide[i][j] == '.'){
+				continue;
+			}
+
+			floodfill(hide, spot - '0', i, j);
+			spot++;
+		}
+	}
+
+	int minimum = INT_MIN;
+	pair<int, int> coordinate;
+
+	for(int i = 0; i < N; i++){
+		for(int j = i + 1; j < N; j++){
+		}
+	}
+
+
+	return 0;
+}

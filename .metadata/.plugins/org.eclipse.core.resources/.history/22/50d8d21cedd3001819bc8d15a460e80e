@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+	vector<int> values = {3, 34, 4, 12, 5, 2};
+	int sum = 9;
+	vector<vector<bool>> DP (values.size() + 1, vector<bool> (sum + 1, false));
+
+	for(int i = 0; i < (int) DP.size(); i++){
+		DP[i][0] = true;
+	}
+
+	for(int i = 1; i < (int) DP.size(); i++){
+		for(int j = 1; j < (int) DP[i].size(); j++){
+			DP[i][j] = DP[i - 1][j] || (j - values[i - 1] >= 0) ?  DP[i - 1][j - values[i - 1]] : false;
+		}
+	}
+
+	cout << DP[DP.size() - 1][DP[0].size() - 1] << endl;
+
+	return 0;
+}

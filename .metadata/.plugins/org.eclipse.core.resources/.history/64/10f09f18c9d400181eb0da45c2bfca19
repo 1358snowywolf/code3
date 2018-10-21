@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+vector<pair<int, int>> first;
+vector<pair<int, int>> second;
+vector<pair<int, int>> third;
+
+void floodfill(vector<vector<char>>& hide, char spot, int i, int j){
+	if(i < 0 || i >= (int) hide.size()){
+		return;
+	}
+	if(j < 0 || j >= (int) hide[0].size()){
+		return;
+	}
+	if(hide[i][j] != 'X'){
+		return;
+	}
+
+	if(spot == '1'){
+		first.push_back({i, j});
+	}
+	if(spot == '2'){
+		second.push_back({i, j});
+	}
+
+	hide[i][j] = spot;
+	int dx[] = {0, 1, 0, -1};
+	int dy[] = {1, 0, -1, 0};
+
+	for(int k = 0; k < 4; k++){
+		floodfill(hide, spot, i + dx[k], j + dy[k]);
+	}
+
+}
+
+int main() {
+	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
+	return 0;
+}

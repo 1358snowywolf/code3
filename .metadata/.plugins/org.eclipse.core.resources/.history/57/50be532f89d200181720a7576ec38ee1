@@ -1,0 +1,41 @@
+//============================================================================
+// Name        : Claustrophobia.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+	int N;
+	cin >> N;
+	pair<int, int> answer;
+	float minimum = INT_MAX;
+	vector<pair<int, int>> coordinates;
+
+	for(int i = 0; i < N; i++){
+		int x, y;
+		cin >> x >> y;
+		coordinates.push_back(make_pair(x, y));
+	}
+
+	for(int i = 0; i < (int) coordinates.size(); i++){
+		for(int j = i + 1; j < (int) coordinates.size(); j++){
+			int X = (coordinates[i].first - coordinates[j].first) * (coordinates[i].first - coordinates[j].first);
+			int Y = (coordinates[i].second - coordinates[j].second) * (coordinates[i].second - coordinates[j].second);
+			float distance = sqrt(X - Y);
+
+			if(minimum < distance){
+				minimum = distance;
+				answer.first = i;
+				answer.second = j;
+			}
+		}
+	}
+
+	return 0;
+}

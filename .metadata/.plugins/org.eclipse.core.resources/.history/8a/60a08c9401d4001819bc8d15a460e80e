@@ -1,0 +1,69 @@
+//============================================================================
+// Name        : Moosick.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+bool isChord(vector<int> song, vector<int> chord, int index){
+	vector<int> part;
+
+	for(int i = index; i < index + (int) chord.size(); i++){
+		part.push_back(song[i]);
+	}
+
+	sort(part.begin(), part.end());
+	int difference = part[0] - chord[0];
+
+	for(int i = 0; i < (int) chord.size(); i++){
+		if(difference != part[i] - chord[i]){
+			return false;
+		}
+	}
+
+	return true;
+}
+
+int main() {
+	int N;
+	cin >> N;
+	vector<int> song;
+	vector<int> chord;
+	vector<int> answers;
+
+	for(int i = 0; i < N; i++){
+		int input;
+		cin >> input;
+		song.push_back(input);
+	}
+
+	int C;
+	cin >> C;
+
+	for(int i = 0; i < C; i++){
+		int input;
+		cin >> input;
+		chord.push_back(input);
+	}
+
+	sort(chord.begin(), chord.end());
+
+	for(int i = 0; i < N; i++){
+		if(isChord(song, chord, i)){
+			answers.push_back(i + 1);
+		}
+	}
+
+	cout << answers.size() << endl;
+
+	for(int i = 0; i < (int) answers.size(); i++){
+		cout << answers[i] << endl;
+	}
+
+	return 0;
+}

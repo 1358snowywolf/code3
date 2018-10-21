@@ -1,0 +1,27 @@
+//============================================================================
+// Name        : Claustrophobia.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+	int N;
+	cin >> N;
+	float minimum = INT_MAX;
+	vector<touple<int, int, int>> coordinates;
+
+	for(int i = 0; i < N; i++){
+		int x, y;
+		cin >> x >> y;
+		coordinates.push_back(make_touple(x, y, i));
+	}
+
+
+	return 0;
+}

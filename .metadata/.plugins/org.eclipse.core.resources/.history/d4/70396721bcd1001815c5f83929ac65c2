@@ -1,0 +1,62 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+int N, P, K;
+int minimum = INT_MAX;
+map<int, vector<pair<int, int>>> graph;
+
+void find(vector<int> lengths){
+	for(int i = 0; i < (int) lengths.size(); i++){
+		cout << lengths[i] << " ";
+	}
+
+	cout << endl;
+
+	sort(lengths.rbegin(), lengths.rend());
+	minimum = min(minimum, lengths[K]);
+}
+
+void DFS(vector<bool> visited, vector<int> lengths, int index){
+	if(N - 1 == index){
+		find(lengths);
+		return;
+	}
+
+	if(visited[index]){
+		return;
+	}
+
+	visited[index] = true;
+
+	for(auto node : graph[index]){
+		lengths.push_back(node.second);
+		DFS(visited, lengths, node.first);
+		lengths.pop_back();
+	}
+
+	visited[index] = false;
+}
+
+int main() {
+	cin >> N >> P >> K;
+	vector<pair<int, int>> neighbors;
+	vector<int> lengths;
+	vector<bool> visited (N, false);
+
+	for(int i = 0; i < N; i++){
+		graph.insert({i, neighbors});
+	}
+
+	for(int i = 0; i < P; i++){
+		int A, B, L;
+		cin >> A >> B >> L;
+
+		graph[A - 1].push_back(make_pair(B - 1, L));
+	}
+
+	DFS(visited, lengths, 0);
+
+	cout << minimum << endl;
+
+	return 0;
+}

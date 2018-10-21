@@ -1,0 +1,56 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+vector<int> dijkstra(map<int, vector<pair<int, int>>> graph, int source){
+	vector<int> distance (graph.size(), INT_MAX);
+	priority_queue<pair<int, int>> pq;
+	distance[source] = 0;
+	pq.push({0, source});
+
+	while(!pq.empty()){
+		pair<int, int> front = pq.top();
+		int d = front.first * -1;
+		int u = front.second;
+		pq.pop();
+
+		if(d > distance[u]){
+			continue;
+		}
+
+		for(auto n : graph[front.second]){
+			if(n.first == 4){
+				cout << "d " << d << "  u  " << u << " " << n.first << ":" << n.second << endl;
+			}
+
+			if(distance[u] + n.second < distance[n.first]){
+				distance[n.first] = distance[d] + n.second;
+				pq.push({distance[n.first] * -1, n.first});
+			}
+		}
+	}
+
+	return distance;
+}
+
+int main() {
+	map<int, vector<pair<int, int>>> graph;
+	vector<pair<int, int>> zero = {{1, 11}, {3, 5}, {2, 4}};
+	vector<pair<int, int>> first = {{0, 11}, {3, 15}, {4, 8}};
+	vector<pair<int, int>> second = {{0, 4}, {3, 14}};
+	vector<pair<int, int>> third = {{1, 15}, {2, 14}, {4, 17}};
+	vector<pair<int, int>> four = {{1, 8}, {3, 17}};
+	graph.insert({0, zero});
+	graph.insert({1, first});
+	graph.insert({2, second});
+	graph.insert({3, third});
+	graph.insert({4, four});
+
+	vector<int> distance = dijkstra(graph, 0);
+
+	for(int i = 0; i < (int) distance.size(); i++){
+		cout << distance[i] << " ";
+	}
+
+	return 0;
+}

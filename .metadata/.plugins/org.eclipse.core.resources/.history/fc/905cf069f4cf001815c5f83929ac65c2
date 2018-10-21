@@ -1,0 +1,40 @@
+//============================================================================
+// Name        : KrushalAlgorithm.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <bits/stdc++.h>
+
+using namespace std;
+vector<int> parent;
+
+int findParent(int u){
+	while(parent[u] != u){
+		u = parent[u];
+	}
+
+	return u;
+}
+
+void join(int u, int v){
+	int a = findParent(u);
+	int b = findParent(v);
+
+	if(a == b){
+		return;
+	}
+	else{
+		parent[a] = v;
+	}
+}
+
+int main() {
+	for(int i = 0; i < 5; i++){
+		parent.push_back(i);
+	}
+
+	return 0;
+}

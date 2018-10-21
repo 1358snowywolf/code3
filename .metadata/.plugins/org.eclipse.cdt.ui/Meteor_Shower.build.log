@@ -1,0 +1,15 @@
+18:40:58 **** Incremental Build of configuration Debug for project Meteor_Shower ****
+make all 
+Building file: ../src/Meteor_Shower.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Meteor_Shower.d" -MT"src/Meteor_Shower.o" -o "src/Meteor_Shower.o" "../src/Meteor_Shower.cpp"
+Finished building: ../src/Meteor_Shower.cpp
+ 
+Building target: Meteor_Shower
+Invoking: GCC C++ Linker
+g++  -o "Meteor_Shower"  ./src/Meteor_Shower.o   
+Finished building target: Meteor_Shower
+ 
+
+18:41:00 Build Finished. 0 errors, 0 warnings. (took 1s.517ms)
+

@@ -1,0 +1,52 @@
+//============================================================================
+// Name        : KrushalAlgorithm.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <bits/stdc++.h>
+
+using namespace std;
+vector<int> parent;
+
+int findParent(int u){
+	while(parent[u] != u){
+		u = parent[u];
+	}
+
+	return u;
+}
+
+void join(int u, int v){
+	int a = findParent(u);
+	int b = findParent(v);
+
+	if(a == b){
+		return;
+	}
+	else{
+		parent[a] = v;
+	}
+}
+
+int main() {
+	for(int i = 0; i < 5; i++){
+		parent.push_back(i);
+	}
+
+	vector<vector<pair<int, int>>> graph;
+	vector<pair<int, int>> input = {{1, 1}, {2, 4}};
+	graph.push_back(input);
+	input = {{0, 1}, {2, 1}, {3, 2}, {4, 3}};
+	graph.push_back(input);
+	input = {{0, 4}, {1, 1}, {3, 10}};
+	graph.push_back(input);
+	input = {{2, 10}, {1, 2}, {4, 3}};
+	graph.push_back(input);
+	input = {{1, 3}, {3, 3}};
+	graph.push_back(input);
+
+	return 0;
+}

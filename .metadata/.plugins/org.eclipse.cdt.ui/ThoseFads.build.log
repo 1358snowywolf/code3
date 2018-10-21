@@ -1,0 +1,15 @@
+17:31:50 **** Build of configuration Debug for project ThoseFads ****
+make all 
+Building file: ../src/ThoseFads.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/ThoseFads.d" -MT"src/ThoseFads.o" -o "src/ThoseFads.o" "../src/ThoseFads.cpp"
+Finished building: ../src/ThoseFads.cpp
+ 
+Building target: ThoseFads
+Invoking: GCC C++ Linker
+g++  -o "ThoseFads"  ./src/ThoseFads.o   
+Finished building target: ThoseFads
+ 
+
+17:31:51 Build Finished. 0 errors, 0 warnings. (took 1s.654ms)
+

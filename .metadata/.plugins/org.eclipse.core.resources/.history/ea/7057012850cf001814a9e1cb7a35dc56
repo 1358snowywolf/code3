@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+vector<int> dijkstra(map<int, vector<pair<int, int>>> graph, int source){
+	vector<int> distance (graph.size(), INT_MAX);
+	priority_queue<pair<int, int>> pq;
+	distance[source] = 0;
+	pq.push(0, S);
+
+}
+
+int main() {
+	return 0;
+}

@@ -1,0 +1,24 @@
+//============================================================================
+// Name        : Lookup.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+	int N;
+	cin >> N;
+	vector<int> answer (N, 0);
+	vector<int> heights;
+	stack<int> indexes;
+
+
+
+
+	return 0;
+}

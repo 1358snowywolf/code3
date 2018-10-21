@@ -1,0 +1,6 @@
+18:35:42 **** Incremental Build of configuration Debug for project CowBeauty ****
+make all 
+make: Nothing to be done for 'all'.
+
+18:35:42 Build Finished. 0 errors, 0 warnings. (took 67ms)
+
